@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+  def search
+    @posts = Post.search(params[:q]) rescue Post.all
+    render :index
+  end
+
   def index
     @posts = Post.all
   end
